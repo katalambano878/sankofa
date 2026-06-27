@@ -1,0 +1,155 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Brand: #FFFFFF (White) */
+    --background: 0 0% 100%;
+    /* Brand: #071B35 (Deep Navy) */
+    --foreground: 214 77% 12%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 214 77% 12%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 214 77% 12%;
+
+    /* Brand: #071B35 (Deep Navy) */
+    --primary: 214 77% 12%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Brand: #C8A15A (Gold) */
+    --secondary: 39 50% 57%;
+    --secondary-foreground: 214 77% 12%;
+
+    /* Brand: #A39F9E (Gray) */
+    --muted: 10 3% 92%;
+    --muted-foreground: 10 3% 38%;
+
+    /* Brand: #D8B36A (Metallic Gold) for Accents/Hover */
+    --accent: 40 58% 63%;
+    --accent-foreground: 214 77% 12%;
+
+    /* Brand: #581628 (Red) */
+    --destructive: 344 60% 22%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 214 30% 90%;
+    --input: 214 30% 90%;
+    --ring: 214 77% 12%;
+
+    --radius: 0.75rem;
+  }
+
+  /* Minimal Dark Mode support (not fully requested but good practice) */
+  .dark {
+    --background: 214 77% 8%;
+    /* Deeper Navy */
+    --foreground: 0 0% 100%;
+
+    --card: 214 70% 11%;
+    --card-foreground: 0 0% 100%;
+
+    --popover: 214 70% 11%;
+    --popover-foreground: 0 0% 100%;
+
+    --primary: 0 0% 100%;
+    --primary-foreground: 214 77% 12%;
+
+    --secondary: 39 50% 57%;
+    --secondary-foreground: 214 77% 12%;
+
+    --muted: 214 50% 18%;
+    --muted-foreground: 214 20% 65%;
+
+    --accent: 214 50% 18%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 214 50% 18%;
+    --input: 214 50% 18%;
+    --ring: 40 58% 63%;
+  }
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    /* Global scale-down: shrinks all rem-based type & spacing a little */
+    font-size: 90%;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  /* Safe area for mobile */
+  body {
+    @apply bg-background text-foreground antialiased selection:bg-sankofa-gold/30;
+    background-image: radial-gradient(circle at 50% 0%, rgba(200, 161, 90, 0.04) 0%, transparent 50%),
+      radial-gradient(circle at 100% 0%, rgba(7, 27, 53, 0.03) 0%, transparent 50%);
+    background-attachment: fixed;
+  }
+}
+
+@layer utilities {
+  .animate-marquee {
+    animation: marquee 25s linear infinite;
+  }
+
+  .animate-shine {
+    background-size: 200% auto;
+    animation: shine 3s linear infinite;
+  }
+
+  .bg-gradient-animate {
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+  }
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes shine {
+  to {
+    background-position: 200% center;
+  }
+}
+
+@keyframes gradientBG {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes scroll-logos {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-33.333%);
+  }
+}
+
+.animate-scroll-logos {
+  animation: scroll-logos 30s linear infinite;
+}
