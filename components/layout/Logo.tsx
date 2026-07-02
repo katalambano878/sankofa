@@ -13,7 +13,7 @@ export default function Logo({
     variant?: "light" | "dark";
     size?: "default" | "compact";
 }) {
-    const heightClass = size === "compact" ? "h-9 md:h-10" : "h-11 md:h-14";
+    const heightClass = size === "compact" ? "h-12 md:h-14" : "h-16 md:h-24";
 
     return (
         <Link
