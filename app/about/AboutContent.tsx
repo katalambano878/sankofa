@@ -66,8 +66,59 @@ export default function AboutContent() {
                 </div>
             </div>
 
-            {/* Mission/Vision */}
+            {/* Who We Are */}
             <Section>
+                <div className="max-w-3xl mx-auto text-center">
+                    <motion.h2
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.6 }}
+                        className="text-3xl md:text-4xl font-bold text-sankofa-navy mb-6 relative inline-block"
+                    >
+                        Who We Are
+                        <span className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-20 h-1 bg-sankofa-gold rounded-full"></span>
+                    </motion.h2>
+                </div>
+                <motion.div
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.7 }}
+                    className="max-w-3xl mx-auto mt-8 space-y-6 text-lg text-muted-foreground leading-relaxed"
+                >
+                    <p>
+                        Sankofa Global Trading Contracting &amp; Hospitality Services W.L.L. is a Qatar-based
+                        multi-service company delivering professional solutions across cleaning, maintenance,
+                        contracting, renovation, hospitality support, energy solutions, and equipment supply.
+                    </p>
+                    <p>
+                        We provide reliable, cost-effective, and high-quality services tailored to the needs of
+                        residential, commercial, hospitality, and industrial clients across Qatar.
+                    </p>
+                    <p>
+                        At Sankofa Global, we believe service goes beyond execution—it is about building trust,
+                        creating value, and delivering measurable results. Through skilled manpower, efficient
+                        project management, and a commitment to operational excellence, we help clients maintain,
+                        improve, and support their facilities and operations with confidence.
+                    </p>
+                    <p>
+                        Our integrated service approach allows clients to work with one trusted partner across
+                        multiple operational needs while maintaining the highest standards of quality, safety,
+                        and customer satisfaction.
+                    </p>
+                    <p>
+                        Driven by professionalism, innovation, and long-term partnerships, Sankofa Global continues
+                        to support businesses and communities by delivering solutions that create lasting impact.
+                    </p>
+                    <p className="text-xl md:text-2xl font-semibold text-sankofa-gold text-center pt-2">
+                        Building Excellence Through Service.
+                    </p>
+                </motion.div>
+            </Section>
+
+            {/* Mission/Vision */}
+            <Section background="muted">
                 <div className="grid md:grid-cols-2 gap-12 items-center">
                     <motion.div
                         initial={{ opacity: 0, x: -50 }}
@@ -124,7 +175,7 @@ export default function AboutContent() {
             </Section>
 
             {/* Values */}
-            <Section background="muted">
+            <Section>
                 <div className="text-center mb-12">
                     <motion.h2
                         initial={{ opacity: 0, y: 20 }}

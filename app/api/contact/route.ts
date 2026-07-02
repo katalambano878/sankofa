@@ -1,28 +1,25 @@
 import { NextRequest, NextResponse } from "next/server";
 import { contactSchema } from "@/lib/forms";
+import { sendSubmissionEmails } from "@/lib/email";
 import { z } from "zod";
 
 export async function POST(request: NextRequest) {
     try {
         const body = await request.json();
 
-        // Validate the data
         const validatedData = contactSchema.parse(body);
 
-        // TODO: In production, you would:
-        // 1. Save to database
-        // 2. Send email notification to support team
-        // 3. Send auto-reply confirmation to customer
-        // 4. Create ticket in support system (if applicable)
-
-        // For now, we'll just log it and return success
-        console.log("Contact Form Submitted:", {
-            timestamp: new Date().toISOString(),
-            ...validatedData,
+        await sendSubmissionEmails({
+            kind: "contact",
+            name: validatedData.name,
+            email: validatedData.email,
+            fields: {
+                Name: validatedData.name,
+                Phone: validatedData.phone,
+                Email: validatedData.email,
+                Message: validatedData.message,
+            },
         });
-
-        // Simulate processing delay
-        await new Promise(resolve => setTimeout(resolve, 500));
 
         return NextResponse.json(
             {
@@ -57,4 +54,3 @@ export async function POST(request: NextRequest) {
         );
     }
 }
-

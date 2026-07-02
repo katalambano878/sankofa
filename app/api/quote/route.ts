@@ -1,29 +1,27 @@
 import { NextRequest, NextResponse } from "next/server";
 import { quoteRequestSchema } from "@/lib/forms";
+import { sendSubmissionEmails } from "@/lib/email";
 import { z } from "zod";
 
 export async function POST(request: NextRequest) {
     try {
         const body = await request.json();
 
-        // Validate the data
         const validatedData = quoteRequestSchema.parse(body);
 
-        // TODO: In production, you would:
-        // 1. Save to database (e.g., Prisma, MongoDB, etc.)
-        // 2. Send email notification to sales team
-        // 3. Send confirmation email to customer
-        // 4. Integrate with CRM system (e.g., HubSpot, Salesforce)
-        // 5. Log to analytics/monitoring service
-
-        // For now, we'll just log it and return success
-        console.log("Quote Request Received:", {
-            timestamp: new Date().toISOString(),
-            ...validatedData,
+        await sendSubmissionEmails({
+            kind: "quote",
+            name: validatedData.name,
+            email: validatedData.email,
+            fields: {
+                Name: validatedData.name,
+                Phone: validatedData.phone,
+                Email: validatedData.email,
+                "Service Required": validatedData.service,
+                "Project Location": validatedData.location,
+                Message: validatedData.message,
+            },
         });
-
-        // Simulate processing delay
-        await new Promise(resolve => setTimeout(resolve, 500));
 
         return NextResponse.json(
             {
@@ -58,4 +56,3 @@ export async function POST(request: NextRequest) {
         );
     }
 }
-
