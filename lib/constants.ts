@@ -16,8 +16,8 @@ export const COMPANY_INFO = {
     whatsapp: "97430149499", // Format for link (no + or spaces)
     website: "https://sankofaglobal.com",
     social: {
-        facebook: "https://facebook.com/sankofaglobal",
-        instagram: "https://instagram.com/sankofaglobal",
+        facebook: "https://www.facebook.com/share/17z24jV1Ji/?mibextid=wwXIfr",
+        instagram: "https://www.instagram.com/sankofaglobal_",
     },
 };
 

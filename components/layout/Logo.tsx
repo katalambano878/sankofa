@@ -25,8 +25,8 @@ export default function Logo({
             <Image
                 src="/logo.png"
                 alt="Sankofa Global"
-                width={583}
-                height={428}
+                width={1024}
+                height={752}
                 priority
                 className={cn(
                     heightClass,
