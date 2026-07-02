@@ -7,7 +7,7 @@ import { COMPANY_INFO } from "@/lib/constants";
  * Required env vars (set in .env.local and on the host):
  *   RESEND_API_KEY   – API key from https://resend.com
  *   CONTACT_EMAIL    – inbox that receives form submissions (defaults below)
- *   FROM_EMAIL       – verified sender, e.g. "Sankofa Global <noreply@sankofaglobal.com>"
+ *   FROM_EMAIL       – verified sender, e.g. "Sankofa Global <noreply@sankofaglobaltrading.com>"
  *                      Until a domain is verified in Resend you may use
  *                      "Sankofa Global <onboarding@resend.dev>" for testing.
  *

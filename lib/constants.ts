@@ -11,7 +11,7 @@ export const COMPANY_INFO = {
     description:
         "Sankofa Global Trading Contracting & Hospitality Services W.L.L. is a Qatar-based multi-service company providing professional cleaning, maintenance, contracting, renovation, solar cleaning, energy solutions, equipment supply, and hospitality staffing across residential, commercial, industrial, and hospitality sectors.",
     phone: "+974 30149499",
-    email: "info@sankofaglobal.com",
+    email: "info@sankofaglobaltrading.com",
     address: "Doha, Qatar",
     whatsapp: "97430149499", // Format for link (no + or spaces)
     website: "https://sankofaglobal.com",

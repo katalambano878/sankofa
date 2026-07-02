@@ -47,7 +47,6 @@ export default function Footer() {
                                 </li>
                             ))}
                             <li><Link href="/faqs" className="text-gray-400 hover:text-white transition-colors text-sm inline-block py-1">FAQs</Link></li>
-                            <li><Link href="/terms" className="text-gray-400 hover:text-white transition-colors text-sm inline-block py-1">Terms of Service</Link></li>
                             <li><Link href="/privacy" className="text-gray-400 hover:text-white transition-colors text-sm inline-block py-1">Privacy Policy</Link></li>
                         </ul>
                     </div>
