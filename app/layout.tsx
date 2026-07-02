@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "sonner";
@@ -7,8 +7,15 @@ import Footer from "@/components/layout/Footer";
 import WhatsAppButton from "@/components/ui/WhatsAppButton";
 import { SchemaOrganization } from "@/components/seo";
 import ScrollProgress from "@/components/ui/ScrollProgress";
+import { COMPANY_INFO } from "@/lib/constants";
 
 const inter = Inter({ subsets: ["latin"] });
+
+export const viewport: Viewport = {
+    themeColor: "#071B35",
+    width: "device-width",
+    initialScale: 1,
+};
 
 export const metadata: Metadata = {
     title: {
@@ -16,6 +23,12 @@ export const metadata: Metadata = {
         template: "%s | Sankofa Global",
     },
     description: "Sankofa Global - a Qatar-based multi-service company providing professional cleaning, maintenance, contracting, renovation, solar cleaning, energy solutions, equipment supply, and hospitality staffing across Doha and Qatar.",
+    applicationName: "Sankofa Global",
+    authors: [{ name: COMPANY_INFO.legalName, url: COMPANY_INFO.website }],
+    creator: COMPANY_INFO.legalName,
+    publisher: COMPANY_INFO.legalName,
+    category: "Facility Services",
+    formatDetection: { email: false, address: false, telephone: false },
     keywords: [
         // Brand signals
         "Sankofa Global", "Sankofa Global Qatar", "Sankofa Global Trading & Contracting",
@@ -30,14 +43,14 @@ export const metadata: Metadata = {
         // Long-tail
         "Best Cleaning Company Qatar", "Reliable Maintenance Services Doha", "Energy Solutions Qatar"
     ],
-    metadataBase: new URL('https://sankofaglobal.com'),
+    metadataBase: new URL(COMPANY_INFO.website),
     alternates: {
         canonical: '/',
     },
     openGraph: {
         title: "Sankofa Global | Building Excellence Through Service",
         description: "A Qatar-based multi-service company for cleaning, maintenance, contracting, renovation, energy, and hospitality solutions.",
-        url: 'https://sankofaglobal.com',
+        url: COMPANY_INFO.website,
         siteName: 'Sankofa Global',
         locale: 'en_QA',
         type: 'website',
@@ -85,11 +98,27 @@ export default function RootLayout({
 }: Readonly<{
     children: React.ReactNode;
 }>) {
+    const websiteSchema = {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "@id": `${COMPANY_INFO.website}#website`,
+        "url": COMPANY_INFO.website,
+        "name": COMPANY_INFO.name,
+        "alternateName": COMPANY_INFO.legalName,
+        "description": COMPANY_INFO.description,
+        "publisher": { "@id": `${COMPANY_INFO.website}#organization` },
+        "inLanguage": "en",
+    };
+
     return (
         <html lang="en">
             <body className={inter.className}>
                 <ScrollProgress />
                 <SchemaOrganization />
+                <script
+                    type="application/ld+json"
+                    dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+                />
                 <Navbar />
                 <main className="min-h-screen">
                     {children}

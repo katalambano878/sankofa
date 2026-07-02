@@ -14,7 +14,7 @@ export const COMPANY_INFO = {
     email: "info@sankofaglobaltrading.com",
     address: "Doha, Qatar",
     whatsapp: "97430149499", // Format for link (no + or spaces)
-    website: "https://sankofaglobal.com",
+    website: "https://www.sankofaglobaltrading.com",
     social: {
         facebook: "https://www.facebook.com/share/17z24jV1Ji/?mibextid=wwXIfr",
         instagram: "https://www.instagram.com/sankofaglobal_",

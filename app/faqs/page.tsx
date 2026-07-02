@@ -3,7 +3,8 @@ import Section from "@/components/ui/section";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { constructMetadata } from "@/lib/seo";
 import CTA from "@/components/sections/CTA";
-import { SchemaFAQ } from "@/components/seo";
+import { SchemaFAQ, SchemaBreadcrumb } from "@/components/seo";
+import { COMPANY_INFO } from "@/lib/constants";
 
 export const metadata = constructMetadata({
     title: "Frequently Asked Questions",
@@ -59,6 +60,12 @@ export default function FAQPage() {
     return (
         <div>
             <SchemaFAQ faqs={faqItems} />
+            <SchemaBreadcrumb
+                items={[
+                    { name: "Home", url: COMPANY_INFO.website },
+                    { name: "FAQs", url: `${COMPANY_INFO.website}/faqs` },
+                ]}
+            />
             <Section background="hero-image" className="pt-32 pb-20">
                 <div className="max-w-4xl mx-auto text-center text-white">
                     <h1 className="text-4xl font-bold mb-4">Frequently Asked Questions</h1>

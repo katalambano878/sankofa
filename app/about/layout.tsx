@@ -1,4 +1,6 @@
 import { constructMetadata } from "@/lib/seo";
+import { SchemaBreadcrumb } from "@/components/seo";
+import { COMPANY_INFO } from "@/lib/constants";
 
 export const metadata = constructMetadata({
     title: "About Sankofa Global",
@@ -17,6 +19,16 @@ export default function AboutLayout({
 }: {
     children: React.ReactNode;
 }) {
-    return <>{children}</>;
+    return (
+        <>
+            <SchemaBreadcrumb
+                items={[
+                    { name: "Home", url: COMPANY_INFO.website },
+                    { name: "About", url: `${COMPANY_INFO.website}/about` },
+                ]}
+            />
+            {children}
+        </>
+    );
 }
 

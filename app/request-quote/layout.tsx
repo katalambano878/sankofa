@@ -1,5 +1,7 @@
 
 import { constructMetadata } from "@/lib/seo";
+import { SchemaBreadcrumb } from "@/components/seo";
+import { COMPANY_INFO } from "@/lib/constants";
 
 export const metadata = constructMetadata({
     title: "Request a Quote",
@@ -17,5 +19,15 @@ export const metadata = constructMetadata({
 });
 
 export default function Layout({ children }: { children: React.ReactNode }) {
-    return <>{children}</>;
+    return (
+        <>
+            <SchemaBreadcrumb
+                items={[
+                    { name: "Home", url: COMPANY_INFO.website },
+                    { name: "Request a Quote", url: `${COMPANY_INFO.website}/request-quote` },
+                ]}
+            />
+            {children}
+        </>
+    );
 }

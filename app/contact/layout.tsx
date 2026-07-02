@@ -1,4 +1,6 @@
 import { constructMetadata } from "@/lib/seo";
+import { SchemaBreadcrumb } from "@/components/seo";
+import { COMPANY_INFO } from "@/lib/constants";
 
 export const metadata = constructMetadata({
     title: "Contact Us",
@@ -17,6 +19,16 @@ export default function ContactLayout({
 }: {
     children: React.ReactNode;
 }) {
-    return <>{children}</>;
+    return (
+        <>
+            <SchemaBreadcrumb
+                items={[
+                    { name: "Home", url: COMPANY_INFO.website },
+                    { name: "Contact", url: `${COMPANY_INFO.website}/contact` },
+                ]}
+            />
+            {children}
+        </>
+    );
 }
 
